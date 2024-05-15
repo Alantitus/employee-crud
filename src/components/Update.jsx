@@ -14,7 +14,7 @@ function Update() {
       const navigate=useNavigate();
     
     useEffect(()=>{
-        axios.get('https://employee-data-4qyb.onrender.com/users/'+id)
+        axios.get('https://crud-server-9sdt.onrender.com/users/'+id)
         .then(res=>{
             setValues(res.data)
         })
@@ -23,7 +23,7 @@ function Update() {
 
     const handleUpdate=(event)=>{
         event.preventDefault()
-        axios.put('https://employee-data-4qyb.onrender.com/users/'+id,values)
+        axios.put('https://crud-server-9sdt.onrender.com/users/'+id,values)
         navigate('/')
     }
   return (
@@ -31,9 +31,14 @@ function Update() {
      <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
       <h1>Update Employee</h1>
       <form onSubmit={handleUpdate}>
+      <div className='mb-2'>
+         <label htmlFor="name">Id:</label>
+         <input onChange={e => setValues({...values,id: e.target.value})} value={values.id} type="text" name='id'
+         className='form-control' placeholder='Enter your Id' />
+       </div>
         <div className='mb-2'>
           <label htmlFor="name">Name:</label>
-          <input onChange={e => setValues({...values,name: e.target.value})} value={values.username}  type="text" name='name'
+          <input onChange={e => setValues({...values,username: e.target.value})} value={values.username}   type="text" name='username'
           className='form-control' placeholder='Enter your name' />
         </div>
 

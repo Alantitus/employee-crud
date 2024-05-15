@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 function Home() {
     const [data,setData]= useState([])
     useEffect(()=>{
-        axios.get('https://employee-data-4qyb.onrender.com/users')
+        axios.get('https://crud-server-9sdt.onrender.com/users')
         .then(res=>setData(res.data))
         .catch(err=>console.log(err))
     },[])
     const handleDelete = (id) => {
         const confirm = window.confirm("Do you want to delete the record?")
         if(confirm){
-          axios.delete('hhttps://employee-data-4qyb.onrender.com/users/'+id).then(res => {
+          axios.delete('https://crud-server-9sdt.onrender.com/users/'+id).then(res => {
                  location.reload();
           }).catch(err => console.log(err))
         }
@@ -24,7 +24,7 @@ function Home() {
             <div className='d-flex justify-content-end'>
                 <Link to="/create" className='btn btn-success'>Add +</Link>
             </div>
-            <table className='table table-striped'>
+            <table className='table '>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -41,7 +41,7 @@ function Home() {
                                 <td>{d.id}</td>
                                 <td>{d.username}</td>
                                 <td>{d.email}</td>
-                                <td><button className='btn btn-dark'>{d.status}</button></td>
+                                <td><button className='btn btn-dark btn-sm' style={{width:'60px'}}>{d.status}</button></td>
                                 <td><Link className='btn btn-sm btn-primary' to={`/read/${d.id}`}>Read</Link></td>
                                 <td><Link to={`/update/${d.id}`} className='btn btn-sm btn-success'>Edit</Link></td>
                                 <td><button onClick={e=>handleDelete(d.id)} className='btn btn-sm btn-danger'>Delete</button></td>

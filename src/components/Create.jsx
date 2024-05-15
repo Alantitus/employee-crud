@@ -14,7 +14,7 @@ function Create() {
     const navigate= useNavigate()
     const handleSubmit=(event)=>{
         event.preventDefault();
-        axios.post('https://employee-data-4qyb.onrender.com/users',values)
+        axios.post('https://crud-server-9sdt.onrender.com/users',values)
         .then(res=>{
             console.log(res)
             navigate('/')

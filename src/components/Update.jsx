@@ -14,7 +14,7 @@ function Update() {
       const navigate=useNavigate();
     
     useEffect(()=>{
-        axios.get('http://localhost:3000/users/'+id)
+        axios.get('https://employee-data-4qyb.onrender.com/users/'+id)
         .then(res=>{
             setValues(res.data)
         })
@@ -23,7 +23,7 @@ function Update() {
 
     const handleUpdate=(event)=>{
         event.preventDefault()
-        axios.put('http://localhost:3000/users/'+id,values)
+        axios.put('https://employee-data-4qyb.onrender.com/users/'+id,values)
         navigate('/')
     }
   return (

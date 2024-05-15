@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 function Home() {
     const [data,setData]= useState([])
     useEffect(()=>{
-        axios.get('http://localhost:3000/users')
+        axios.get('https://employee-data-4qyb.onrender.com/users')
         .then(res=>setData(res.data))
         .catch(err=>console.log(err))
     },[])
     const handleDelete = (id) => {
         const confirm = window.confirm("Do you want to delete the record?")
         if(confirm){
-          axios.delete('http://localhost:3000/users/'+id).then(res => {
+          axios.delete('hhttps://employee-data-4qyb.onrender.com/users/'+id).then(res => {
                  location.reload();
           }).catch(err => console.log(err))
         }
